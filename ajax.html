@@ -31,12 +31,13 @@ $(document).ready(function(){
 
     $.ajax('//localhost:8080/client', {
       method: 'GET',
+      dataType: 'json',
       data: {
         rfc: $('#rfc').val()
       }
     })
     .done(function(data) {
-      alert (data);
+      console.log(data);
     });
   });
 });
