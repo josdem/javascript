@@ -1,6 +1,7 @@
 <html>
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 
 <body>
@@ -35,13 +36,11 @@ $(document).ready(function(){
         }
         })
     .done(function(data) {
-      if(typeof(data.rfc) !== 'undefined' || data.rfc !== '' ) {
-        var simulator = $('#simulator');
-        simulator.find('#rfc').val(data.rfc);
-        simulator.find('#nombre').val(data.nombre);
-        simulator.find('#apellidoPaterno').val(data.apellidoPaterno);
-        simulator.find('#apellidoMaterno').val(data.apellidoMaterno);
-      }
+      var simulator = $('#simulator');
+      simulator.find('#rfc').val(data.rfc);
+      simulator.find('#nombre').val(data.nombre);
+      simulator.find('#apellidoPaterno').val(data.apellidoPaterno);
+      simulator.find('#apellidoMaterno').val(data.apellidoMaterno);
     })
     .fail(function(data, status){
       console.log(data, status)
