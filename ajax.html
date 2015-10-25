@@ -1,0 +1,44 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<form id="simulator">
+  <div>
+    <label for="rfc">RFC</label>
+    <input type="text" name="rfc" id="rfc"/>
+  </div>
+  <div>
+    <label for="nombre">nombre</label>
+    <input type="text" name="nombre" id="nombre"/>
+  </div>
+  <div>
+    <label for="apellidoPaterno">apellidoPaterno</label>
+    <input type="text" name="apellidoPaterno" id="apellidoPaterno"/>
+  </div>
+  <div>
+    <label for="apellidoMaterno">apellidoMaterno</label>
+    <input type="text" name="apellidoMaterno" id="apellidoMaterno"/>
+  </div>
+</form>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button").click(function(){
+
+    $.ajax('//localhost:8080/client', {
+        method: 'GET',
+        data: {
+          rfc: $('#rfc').val()
+        }
+    });
+  });
+});
+</script>
+
+<button>Send</button>
+</body>
+</html>
