@@ -30,14 +30,23 @@ $(document).ready(function(){
   $("button").click(function(){
 
     $.ajax('//localhost:8080/client', {
-      method: 'GET',
-      dataType: 'json',
-      data: {
-        rfc: $('#rfc').val()
+        method: 'GET',
+        dataType: 'json',
+        data: {
+          rfc: $('#rfc').val()
+        }
+        })
+    .done(function(data) {
+      if(typeof(data.rfc) !== 'undefined' || data.rfc !== '' ) {
+        var simulator = $('#simulator');
+        simulator.find('#rfc').val(data.rfc);
+        simulator.find('#nombre').val(data.nombre);
+        simulator.find('#apellidoPaterno').val(data.apellidoPaterno);
+        simulator.find('#apellidoMaterno').val(data.apellidoMaterno);
       }
     })
-    .done(function(data) {
-      console.log(data);
+    .fail(function(data, status){
+      log.console(data, status)
     });
   });
 });
